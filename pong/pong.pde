@@ -10,14 +10,19 @@ void draw() {
 
 void drawGameScreen() {
   // Draw background
+  background(bgColor);
+  drawBall();
   // Update Ball Velocity and Resolve Collisions
+  updateBallVelocity();
   // Update Ball and Paddle Positions
+  
   // Draw Ball and Paddles
   // Display Scores
 }
 
 void drawBall() {
   // Display Ball in correct position
+  ellipse(width/2,height/2,2*ballRadius,2*ballRadius);
 }
 
 void drawPaddles() {
