@@ -1,4 +1,5 @@
 void rightLose() {
+  
 }
 
 void leftLose() {
