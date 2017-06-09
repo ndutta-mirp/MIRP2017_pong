@@ -33,6 +33,11 @@ void drawGameScreen() {
   text("Left Lose:(",50,200);
   resetGame();
   }
+  pauseGame();
+  if(reset){
+    resetGame();
+  }
+    resetBall();
   // Display Scores
 }
 
@@ -58,10 +63,28 @@ void resetGame(){
   // Reset Ball Velocity
   ballVx = -BALL_VELOCITY;
   ballVy = 0;
+  leftScore=0;
+  rightScore=0;
 }
 
 void displayScores() {
   text(leftScore,200,150);
   text(rightScore, 600,150);
   // Display Left and Right player Scores
+}
+void pauseGame(){
+if(pause){
+ballX=displayWidth/2;
+ballY=displayHeight/2;
+leftPaddle=displayHeight/3; 
+rightPaddle=displayHeight/3;
+ballVx=BALL_VELOCITY;
+ballVy=0;
+}
+}
+void resetBall(){
+ballX=displayWidth/2;
+ballY=displayHeight/2;
+ballVx=BALL_VELOCITY;
+ballVy=0;
 }
