@@ -1,6 +1,16 @@
-void rightLose() {
-  
+void leftLose() {
+  if(ballX < ballRadius){
+  rightScore+=1;
+  resetGame();
+  delay(1000);
+  }
 }
 
-void leftLose() {
+void rightLose() {
+  if(ballX > displayWidth-ballRadius){
+  leftScore+=1;
+  resetGame();
+  delay(1000);
+  }
 }
+ 

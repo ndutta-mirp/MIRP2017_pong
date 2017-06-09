@@ -1,3 +1,4 @@
+
 void setup() {
   size(displayWidth, displayHeight);
   resetGame();
@@ -19,6 +20,19 @@ void drawGameScreen() {
   updateBallPosition();
   updatePaddlePositions();
   // Draw Ball and Paddles
+  leftLose();
+  rightLose();
+  displayScores();
+  if(leftScore==10){
+  text("Left Wins!",150,200);
+  text("Right Lose:(",450,200);
+  resetGame();
+  }
+  else if(rightScore==10){
+  text("Right Wins!",450,200);
+  text("Left Lose:(",50,200);
+  resetGame();
+  }
   // Display Scores
 }
 
@@ -36,10 +50,18 @@ void drawPaddles() {
 }
 
 void resetGame(){
+  ballX=displayWidth/2;
+  ballY=displayHeight/2;
+  leftPaddle=displayHeight/3; 
+  rightPaddle=displayHeight/3;
   // Reset Ball and Paddle Positions
   // Reset Ball Velocity
+  ballVx = -BALL_VELOCITY;
+  ballVy = 0;
 }
 
 void displayScores() {
+  text(leftScore,200,150);
+  text(rightScore, 600,150);
   // Display Left and Right player Scores
 }
