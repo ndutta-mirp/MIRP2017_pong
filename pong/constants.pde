@@ -17,7 +17,7 @@ color ballColor = color(150,180,50);
 // Y - position of Left and Right paddles
 float leftPaddle=displayHeight/3, rightPaddle=displayHeight/3;
 // Paddle Dimensions
-float paddleLength = 150, paddleWidth = 20;
+float paddleLength = 100, paddleWidth = 20;
 color paddleColor = color(255,255,255);
 float paddleRadii=7;
 
@@ -36,3 +36,6 @@ char RESET = 'r', PAUSE = 'p', START = 's';
 // Keyoard Handling Booleans
 boolean left_up, right_up, left_down, right_down;
 boolean reset, pause, start;
+
+// setting game state
+int gamestate=0;

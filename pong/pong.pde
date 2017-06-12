@@ -1,9 +1,7 @@
 
 void setup() {
   size(displayWidth, displayHeight);
-  if(reset){
-    resetGame();
-  }
+  resetGame();
   textFont(createFont("Arial Bold", 50));
 }
 
@@ -12,6 +10,10 @@ void draw() {
 }
 
 void drawGameScreen() {
+  if (reset){
+    leftScore = 0;
+    rightScore = 0;
+  }
   // Draw background
   background(bgColor);
   drawBall();
@@ -22,20 +24,21 @@ void drawGameScreen() {
   updateBallPosition();
   updatePaddlePositions();
   // Draw Ball and Paddles
-  //leftLose();
-  //rightLose();
+  leftLose();
+  rightLose();
   displayScores();
   if(leftScore==10){
-    text("Left Wins!",150,200);
-    text("Right Lose:(",450,200);
-    resetGame();
+  text("Left Wins!",150,200);
+  text("Right Lose:(",450,200);
+  resetGame();
   }
   else if(rightScore==10){
-    text("Right Wins!",450,200);
-    text("Left Lose:(",50,200);
-    resetGame();
-  }
+  text("Right Wins!",450,200);
+  text("Left Lose:(",50,200);
+  resetGame();
+  if(pause)
   pauseGame();
+  }
   // Display Scores
 }
 
@@ -59,30 +62,12 @@ void resetGame(){
   rightPaddle=displayHeight/3;
   // Reset Ball and Paddle Positions
   // Reset Ball Velocity
-  ballVx = BALL_VELOCITY;
+  ballVx = -BALL_VELOCITY;
   ballVy = 0;
-  leftScore=0;
-  rightScore=0;
 }
 
 void displayScores() {
   text(leftScore,200,150);
   text(rightScore, 600,150);
   // Display Left and Right player Scores
-}
-void pauseGame(){
-if(pause){
-ballX=displayWidth/2;
-ballY=displayHeight/2;
-leftPaddle=displayHeight/3; 
-rightPaddle=displayHeight/3;
-ballVx=BALL_VELOCITY;
-ballVy=0;
-}
-}
-void resetBall(){
-ballX=displayWidth/2;
-ballY=displayHeight/2;
-ballVx=BALL_VELOCITY;
-ballVy=0;
 }
